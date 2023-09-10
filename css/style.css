@@ -1,0 +1,545 @@
+@import url('https://fonts.googleapis.com/css?family=Libre+Caslon+Text:400,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(45deg,
+            rgba(117, 221, 221, 0.6),
+            rgba(99, 179, 183, 0.6),
+            rgba(5, 128, 104, 0.6),
+            rgba(9, 188, 138, 0.6));
+    overflow-x: hidden;
+    font-family: 'Sansita', sans-serif;
+}
+
+/* Hamburger Menu Styles */
+.hamburger-icon {
+    position: absolute;
+    z-index: 1;
+    top: 2vh;
+    left: 4vw;
+    padding-bottom: 2vh;
+}
+
+.hamburger-icon span {
+    height: 3px;
+    width: 30px;
+    background-color: black;
+    display: block;
+    margin: 5px 0px;
+    transition: 0.7s ease-in-out;
+    transform: none;
+}
+
+input.hamburger-checkbox {
+    position: absolute;
+    z-index: 3;
+    top: 5vh;
+    left: 5vw;
+    width: 10vw;
+    opacity: 0;
+    height: 6vh;
+}
+
+/* Use general sibling combinator (~) to target elements */
+#openmenu:checked ~ .menu-pane {
+    left: -5vw;
+    transform: translateX(-5vw);
+}
+
+#openmenu:checked ~ .hamburger-icon span:nth-of-type(2) {
+    transform: translate(0%, 175%) rotate(-45deg);
+    background-color: white;
+}
+
+#openmenu:checked ~ .hamburger-icon span:nth-of-type(3) {
+    transform: rotate(45deg);
+    background-color: white;
+}
+
+#openmenu:checked ~ .hamburger-icon span:nth-of-type(1),
+#openmenu:checked ~ .hamburger-icon span:nth-of-type(4) {
+    opacity: 0;
+}
+
+/* Navigation Styles */
+.menu-pane {
+    background-color: #172A3A;
+    position: absolute;
+    transform: translateX(-105vw);
+    transform-origin: 0;
+    width: 70%;
+    height: 100%;
+    transition: 0.6s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-navbar, .right-navbar {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    width: 50%;
+}
+
+.left-navbar li, .right-navbar li {
+    margin: 20px;
+    text-align: right;
+}
+
+.left-navbar a, .right-navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 35px;
+    transition: 0.3s;
+}
+
+.left-navbar a:hover, .right-navbar a:hover {
+    color: #75DDDD;
+}
+
+/* Logo Styles */
+.logo {
+    text-align: right;
+    background-color: #345A66;
+    height: 10vh;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.logo a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+    padding: 20px;
+    margin-right: 20px;
+}
+
+.logo a:hover {
+    color: #75DDDD;
+}
+
+.logo img {
+    width: 3%;
+    border: 2px solid white;
+    border-radius: 50px;
+    background-color: #553876;
+    vertical-align: middle;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+/* Animation Styles */
+.item {
+    display: flex;
+    align-items: center;
+}
+
+.item1.active .carousel-img img.animated {
+    visibility: visible;
+    opacity: 1;
+    transition: all 1s ease;
+    animation-duration: 2s;
+    animation-delay: 0.3s;
+}
+
+.carousel-desc {
+    margin-left: 10%;
+}
+
+.button-container {
+    padding-top: 20px;
+}
+
+.main-btn,
+.secondary-btn {
+    text-decoration: none;
+    padding: 7px 15px;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+
+.main-btn {
+    background: black;
+    color: #fff;
+    border: 2px solid black;
+}
+
+.main-btn:hover {
+    border: 2px solid white;
+    color: #ccc;
+}
+
+.secondary-btn {
+    color: rgb(52, 52, 52);
+    border: 2px solid black;
+}
+
+.secondary-btn:hover {
+    background: rgb(56, 56, 56);
+    color: #ccc;
+}
+
+/* Animation Delays */
+.item h2 {
+    font-size: 50px;
+    animation-delay: 1.5s;
+    animation-duration: 1s;
+}
+
+.item p {
+    animation-delay: 2.5s;
+    animation-duration: 1s;
+    padding-top: 10px;
+}
+
+/* Styles for the Services Section */
+.services-section {
+    padding: 60px 0;
+    display: flex;
+}
+
+.container {
+    padding-left: 30px;
+    width: 30%;
+}
+
+.container h2 {
+    padding-bottom: 20px;
+    font-size: 40px;
+}
+
+.container p {
+    font-size: 20px;
+    text-align: left;
+    color: #172A3A;
+}
+
+.row {
+    width: 70%;
+}
+
+.service-item {
+    text-align: center;
+    padding: 20px;
+    background-color: #63B3B7;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+}
+
+.service-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.service-item h3 {
+    margin: 20px 0;
+    font-size: 20px;
+}
+
+.service-item p {
+    font-size: 16px;
+    color: #172A3A;
+}
+/* Contact Us Section Styles */
+.contact-section {
+    padding: 60px 100px;
+    display: flex;
+    justify-content: flex-end;
+}
+.contact-form {
+    max-width: 500px;
+    margin: 0 20px;
+}
+
+.contact-section h2 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+}
+.contact-section img{
+    width: 50%;
+}
+.container{
+    width: 50%;
+}
+.form{
+    background-color: #75DDDD;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Contact Form Styles */
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    appearance: none; /* Remove default arrow in some browsers */
+    background: url('arrow-down.png') no-repeat right center; /* Add custom arrow image */
+    background-size: 20px; /* Adjust the arrow image size */
+    cursor: pointer;
+}
+
+.form-group select:focus {
+    border-color: #75DDDD;
+}
+
+/* Style the arrow-down image */
+.form-group select::-ms-expand {
+    display: none; /* Hide the default arrow in IE */
+}
+
+/* You can customize the arrow image further if needed */
+.form-group select option {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Add styling for the form as needed */
+.form-group label {
+    display: block;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group textarea {
+    height: 100px;
+}
+/* Newsletter Section Styles */
+.newsletter-section {
+    background:linear-gradient(45deg,rgb(9, 188, 138,0.2),rgb(3, 98, 87,0.2));
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.newsletter-section h2 {
+    font-size: 36px;
+    color:black;
+    margin-bottom: 20px;
+}
+
+.newsletter-section p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Newsletter Form Styles */
+.newsletter-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.newsletter-form .form-group {
+    margin-bottom: 20px;
+}
+
+.newsletter-form label {
+    display: block;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.newsletter-form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.newsletter-form button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* Style for the About Us Section */
+.about-section{  
+ display: flex; 
+}
+.about-us-container{
+    width: 50%;
+}
+.about-us-container h2{
+    text-align: left;
+    font-size: 40px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-left: 30px;
+}
+.about-us-container p{
+    text-align: left;
+    font-size: 20px;
+    padding-left: 30px;
+}
+.feature-container{
+    width:50%;
+}
+.feature-container h3{
+display: flex;
+justify-content: flex-start;
+align-items: center;
+padding-bottom: 20px;
+padding-top: 20px;
+font-size: 40px;
+padding-left: 100px;
+}
+.feature-container-li{
+    display: flex;
+    justify-content:flex-start;
+    align-items:flex-start;
+    padding-left: 100px;
+}
+/* Style for the Testimonials Section */
+.testimonials-section {
+    padding: 60px 0;
+    text-align: center;
+    background:linear-gradient(45deg,rgb(9, 188, 138,0.2),rgb(3, 98, 87,0.2));
+    margin-top: 20px;
+}
+
+.testimonials-section h2 {
+    font-size: 36px;
+    color:black;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.testimonial-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    margin-top: 20px;
+    justify-content: space-between;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+}
+.testimonial {
+    flex-basis: calc(33.33% - 20px); 
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: left;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.testimonial cite {
+    font-size: 16px;
+    color: #666;
+}
+/* Footer Styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-logo img {
+  max-width: 100px;
+  height: auto;
+}
+
+.footer-links ul {
+  list-style-type: none;
+  padding: 0;
+}
+.footer-address, .footer-contact {
+  flex: 1;
+  text-align: center;
+}
+.footer-address p, .footer-contact p {
+  margin: 5px 0;
+}
+/* Style the social media icons */
+.social-icon {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 24px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: #ff9900;
+}
+.footer-links ul li {
+  margin-bottom: 10px;
+}
+.footer-bottom p a {
+  color: #fff; /* Set the link color */
+  text-decoration: none; /* Remove the underline */
+  margin: 0 10px; /* Add some spacing between links */
+}
+
+/* Style the links on hover */
+.footer-bottom p a:hover {
+  text-decoration: underline; /* Add underline on hover */
+  color: #ff9900; /* Change the link color on hover */
+}

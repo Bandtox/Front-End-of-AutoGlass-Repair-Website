@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoGlass Repair</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Sansita" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+</head>
+
+<body>
+    <div class="menu-container">
+        <input type="checkbox" id="openmenu" class="hamburger-checkbox">
+        <div class="hamburger-icon">
+            <label for="openmenu" id="hamburger-label">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+        <div class="menu-pane">
+            <nav class="left-navbar">
+                <ul>
+                    <li><a href="#Home">Home</a></li>
+                    <li><a href="#Services">Services</a></li>
+                    <li><a href="#About">About</a></li>
+                </ul>
+            </nav>
+            <nav class="right-navbar">
+                <ul class="right-navbar">
+                    <li><a href="#Contact">Contact</a></li>
+                    <li><a href="#Reviews">Reviews</a></li>
+                    <li><a href="#Call-us">Call-us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <nav class="logo">
+        <img src="res/Logo.png" alt="AutoGlass Repair Logo">
+        <a href="#" class="logo-name">AutoGlass Repair</a>
+    </nav>
+
+    <div class="item item1 active">
+        <div class="carousel-img">
+            <img src="res/car1.png" alt="car" class="img img-responsive" />
+        </div>
+        <div class="carousel-desc">
+            <div class="text-container">
+                <h2>AutoGlass<br />Repairing With <br />Our Top Experts</h2>
+                <p>
+                    We provide faster, better, and safer services.<br /> We provide
+                    doorstep services.
+                </p>
+            </div>
+            <div class="button-container">
+                <a href="#contact" class="main-btn">Contact</a>
+                <a href="#about" class="secondary-btn">About</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Include Bootstrap JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Close the menu when a menu item is clicked
+            $('.left-navbar a, .right-navbar a').on('click', function () {
+                $('#openmenu').prop('checked', false); // Uncheck the checkbox
+            });
+        });
+        $(document).ready(function () {
+            // To add start animation on load for the first slide
+            $(function () {
+                $.fn.extend({
+                    animateCss: function (animationName) {
+                        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+                        this.addClass('animated ' + animationName).one(animationEnd, function () {
+                            $(this).removeClass(animationName);
+                        });
+                    }
+                });
+                $('.item1.active img').animateCss('slideInLeft');
+                $('.item1.active h2').animateCss('zoomIn');
+                $('.item1.active p').animateCss('fadeIn');
+            });
+
+            // To start animation on mousescroll, click, and swipe
+            $('.carousel').on('slide.bs.carousel', function () { // Use .carousel class here
+                $.fn.extend({
+                    animateCss: function (animationName) {
+                        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+                        this.addClass('animated ' + animationName).one(animationEnd, function () {
+                            $(this).removeClass(animationName);
+                        });
+                    }
+                });
+
+                $('.item1 img').animateCss('slideInleft');
+                $('.item1 h2').animateCss('zoomIn');
+                $('.item1 p').animateCss('fadeIn');
+            });
+        });
+    </script>
+
+
+    <section id="Services" class="services-section">
+        <div class="container">
+            <h2>Our Services</h2>
+            <p>We provide better, safer and faster services.
+                Windshield replacement in under 2 hours.
+                Doorstep service, Conveniently located service centres Genuine products used.
+                One-year warranty on workmanship and material</p>
+        </div>
+        <div class="row">
+            <div class="service-item">
+                <img src="res/fact-4.svg" alt="Service 1">
+                <h3>Windshield Replacement</h3>
+                <p>We specialize in windshield replacement, ensuring your safety on the road with high-quality
+                    glass.</p>
+            </div>
+            <div class="service-item">
+                <img src="res/fact-2.svg" alt="Service 2">
+                <h3>Chip and Crack Repair</h3>
+                <p>Don't let small chips and cracks turn into big problems. We offer expert repair services.</p>
+            </div>
+            <div class="service-item">
+                <img src="res/fact-1.svg" alt="Service 3">
+                <h3>Mobile Glass Repair</h3>
+                <p>Can't come to us? No problem! We provide convenient mobile glass repair services at your
+                    location.</p>
+            </div>
+        </div>
+    </section>
+    <section id="Contact" class="contact-section">
+        <img src="res/Logo.png" alt="Service 1">
+        <div class="container">
+            <h2>Contact Us About Your Car</h2>
+            <p>Have questions or need assistance with your car? Reach out to us below:</p>
+            <div class="contact-form">
+                <form action="#" method="post" class="form">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="car-make">Car Make:</label>
+                        <select id="car-make" name="car-make" required>
+                            <option value="Toyota">Toyota</option>
+                            <option value="Honda">Honda</option>
+                            <option value="Ford">Ford</option>
+                            <!-- Add more car make options as needed -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="car-model">Car Model:</label>
+                        <select id="car-model" name="car-model" required>
+                            <option value="Camry">Camry</option>
+                            <option value="Civic">Civic</option>
+                            <option value="Focus">Focus</option>
+                            <!-- Add more car model options as needed -->
+                        </select>
+                    </div>
+                    <div class="button-container">
+                        <button type="submit" class="main-btn">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <section id="Newsletter" class="newsletter-section">
+        <div class="container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Stay up-to-date with our latest news and offers by subscribing to our newsletter:</p>
+            <div class="newsletter-form">
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="main-btn">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <section id="About" class="about-section">
+        <div class="about-us-container">
+            <h2>About Us</h2>
+            <p>We are a team of dedicated professionals passionate about providing the best auto glass repair and
+                replacement services to our customers. With years of experience, we take pride in delivering top-quality
+                solutions for all your auto glass needs.</p>
+            <p>Our mission is to ensure your safety on the road by offering efficient, reliable, and convenient
+                services. We use genuine products and provide one-year warranties on workmanship and materials, so you
+                can trust us with your vehicle's glass needs.</p>
+        </div>
+        <div class="feature-container">
+            <h3>Our Features</h3>
+            <div class="feature-container-li">
+                <ul>
+                    <li>Windshield Replacement in Under 2 Hours</li>
+                    <li>Convenient Doorstep Service</li>
+                    <li>Expert Chip and Crack Repair</li>
+                    <li>Mobile Glass Repair at Your Location</li>
+                    <li>Genuine Products and Materials</li>
+                    <li>One-Year Warranty on Workmanship and Materials</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section id="Testimonials" class="testimonials-section">
+        <div class="testimonial-container">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonial-row">
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        <p>"The service was fast and professional. My windshield was replaced in no time, and the
+                            quality of work exceeded my expectations. Highly recommended!"</p>
+                        <cite>- John Doe</cite>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        <p>"I had a chip in my windshield, and they repaired it quickly. The technician was friendly and
+                            knowledgeable. I'm very satisfied with the result."</p>
+                        <cite>- Jane Smith</cite>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        <p>"Excellent mobile service! They came to my location and replaced my rear window. Great
+                            service and competitive pricing."</p>
+                        <cite>- Michael Johnson</cite>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="res/Logo.png" alt="Company Logo">
+            </div>
+            <div class="footer-address">
+                <p>123 Main Street</p>
+                <p>City, State 12345</p>
+            </div>
+            <div class="footer-contact">
+                <p>Email: contact@example.com</p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
+        </div>
+        <div class="footer-social">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Company Name. All rights reserved.</p>
+            <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+    
+</body>
+
+</html>
